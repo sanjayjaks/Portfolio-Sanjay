@@ -14,13 +14,12 @@ const projects = [
 ];
 const tools = ["Premiere Pro","DaVinci Resolve","After Effects","CapCut","Filmora","Veo 3","Runway ML","HeyGen","ElevenLabs","React.js","Node.js","Express.js","MongoDB","React Native"];
 const jobs = [
-  ["Sep 2026 – Present","AI Creative & Multimedia Designer","Netram Defence Foundation · Gurugram (on-site)","Designing AI-assisted creative, decks and campaign visuals."],
-  ["Aug 2026 – Sep 2026","AI Dubbing Artist & Video Editor","Aview International · Remote","End-to-end editing and AI-powered dubbing and voice localisation for multilingual content."],
-  ["Mar 2026 – Present","Video Editor","Yellowred Photography · Hyderabad","Editing for photography and event clients."],
-  ["Jan 2026 – Mar 2026","Video Editor Intern","Protrainy · Remote","Product-focused video for business and marketing goals, delivered with the Products team."],
-  ["Sep 2025 – Dec 2025","Video Editor & Content Writer","Dragon's Perception · Remote","Researched, scripted and edited 30–90s and long-form content for Indian youth audiences."],
-  ["Jul 2024 – May 2026","Video Editor","Hacnic Club, MLR Institute of Technology","Highlight reels, promos, Instagram and YouTube shorts with subtitles, transitions and effects."],
-  ["Jul 2024 – Apr 2026","Event Specialist","Freelance","Shot and edited event recaps with synced music, overlays and dynamic cuts."]
+  ["Aug 2026 – Present","AI Creative & Multimedia Designer","Netram Defence Foundation · Gurugram, On-site","• Lead UI/UX design for the SDD project: wireframes, screen layouts and end-to-end user flows.<br>• Produce AI-assisted video, graphics and multimedia using Veo, Runway, Midjourney and Firefly, on brand."],
+  ["Mar 2026 – July 2026","Video Editor","Yellowred Photography · Hyderabad, On-site","• Edit professional client videos with a focus on cinematic storytelling and visual quality, delivered on client timelines."],
+  ["Jan 2026 – Mar 2026","Video Editor Intern","Protrainy · Remote","• Edited product marketing videos with the product team, delivering every asset on schedule with consistent branding."],
+  ["Sep 2025 – Dec 2025","Video Editor & Content Writer Intern","Dragon's Perception · Remote","• Researched, scripted and edited 30–90s short-form and long-form videos for Indian youth audiences with strong hooks.<br>• Handled motion graphics, subtitles, sound cleanup and color correction to spec and deadline."],
+  ["Jul 2024 – May 2026","Video Editor","Hacnic Club, MLR Institute of Technology","• Produced event highlight reels and Instagram/YouTube reels with subtitles, transitions and effects under tight deadlines."],
+  ["2024 – Present","Freelance Video Editor & Event Specialist","Self-employed · Hyderabad / Remote","• Delivered promotional and educational videos for clients in India, the UAE and Africa; shot and edited event recaps with synced music and overlays."]
 ];
 const skills={
  creative:[
