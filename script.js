@@ -1,199 +1,306 @@
-// ===== EDIT YOUR CONTENT HERE =====
-const drive = id => `https://drive.google.com/file/d/${id}/preview`;
-const openUrl = id => `https://drive.google.com/file/d/${id}/view`;
-const projects = [
-  {t:"AI Generated & Edited Film",c:"ai",tag:"AI video",id:"1diFCGfNpIGNV39Yd_DhE_72LA7XbF-Bx",src:"videos/ai-1.mp4",g:"linear-gradient(135deg,#7a0010,#e11d2e)"},
-  {t:"AI Generated & Edited Video 02",c:"ai",tag:"AI video",id:"1aeP4RIACDsA0La0sO69BTcCCJL6Iszsc",src:"videos/ai-2.mp4",g:"linear-gradient(135deg,#1a0c0e,#b3101f)"},
-  {t:"AI & Motion Graphics",c:"ai",tag:"Motion",id:"16GjFI7bSzjBxJd3jRtCn3KTanE7XFJ8I",src:"videos/motion.mp4",g:"linear-gradient(135deg,#e11d2e,#ff7a59)"},
-  {t:"supply6",c:"d2c",tag:"D2C brand",id:"1nigDtwtiVxzyDlk2Ei6DwrjHVIAnPgFz",src:"videos/supply6.mp4",g:"linear-gradient(135deg,#0d0d0f,#4a1016)"},
-  {t:"rockED",c:"d2c",tag:"D2C brand",id:"1cWYOD5sLjmaNqWQOVYGge78lfYqlIZyy",src:"videos/rocked.mp4",g:"linear-gradient(135deg,#8c0b17,#ff4d5a)"},
-  {t:"Documentary Edit",c:"long",tag:"YouTube long form",id:"15TFPk32gTTzxp9MFKfXsEaNmdGeSBOE1",src:"videos/documentary.mp4",g:"linear-gradient(135deg,#050506,#c4152a)"},
-  {t:"Super Nova",c:"d2c",tag:"D2C brand",id:"1LOFcBeeL6ZXIlDDCHRL1KT-KMOgNxfM2",src:"videos/supernova.mp4",g:"linear-gradient(135deg,#5c0a14,#ff3d4c)"},
-  {t:"Narrative & Storytelling",c:"long",tag:"YouTube long form",id:"1Df1RyytiibgRULIkYHFKqNJjUvN1-Zji",src:"videos/narrative.mp4",g:"linear-gradient(135deg,#1c1012,#9e1020)"},
-  {t:"Finance Explainer",c:"biz",tag:"Freelance project",id:"1wJYgyFm6567bmSjtBWLOmO32w0AonR15",src:"videos/finance.mp4",g:"linear-gradient(135deg,#2a0a0f,#e11d2e)"}
-];
-const tools = ["Premiere Pro","DaVinci Resolve","After Effects","CapCut","Filmora","Veo 3","Runway ML","HeyGen","ElevenLabs","React.js","Node.js","Express.js","MongoDB","React Native"];
-const jobs = [
-  ["Aug 2026 – Present","AI Creative & Multimedia Designer","Netram Defence Foundation · Gurugram, On-site","• Lead UI/UX design for the SDD project: wireframes, screen layouts and end-to-end user flows.<br>• Produce AI-assisted video, graphics and multimedia using Veo, Runway, Midjourney and Firefly, on brand."],
-  ["Mar 2026 – July 2026","Video Editor","Yellowred Photography · Hyderabad, On-site","• Edit professional client videos with a focus on cinematic storytelling and visual quality, delivered on client timelines."],
-  ["Jan 2026 – Mar 2026","Video Editor Intern","Protrainy · Remote","• Edited product marketing videos with the product team, delivering every asset on schedule with consistent branding."],
-  ["Sep 2025 – Dec 2025","Video Editor & Content Writer Intern","Dragon's Perception · Remote","• Researched, scripted and edited 30–90s short-form and long-form videos for Indian youth audiences with strong hooks.<br>• Handled motion graphics, subtitles, sound cleanup and color correction to spec and deadline."],
-  ["Jul 2024 – May 2026","Video Editor","Hacnic Club, MLR Institute of Technology","• Produced event highlight reels and Instagram/YouTube reels with subtitles, transitions and effects under tight deadlines."],
-  ["2024 – Present","Freelance Video Editor & Event Specialist","Self-employed · Hyderabad / Remote","• Delivered promotional and educational videos for clients in India, the UAE and Africa; shot and edited event recaps with synced music and overlays."]
-];
-const skills={
- creative:[
-  ["Video Editing",["Adobe Premiere Pro","DaVinci Resolve","CapCut","Filmora"]],
-  ["Motion Graphics & VFX",["Adobe After Effects","Canva Pro","Motion Graphics","Compositing"]],
-  ["Generative AI & AI Video",["Google Veo","Kling AI","Runway","Higgsfield","HeyGen","ElevenLabs","ChatGPT","Gemini"]],
-  ["AI Video Workflows",["Text-to-Video","Image-to-Video","AI Character Videos","Lip Sync","AI Voice Generation","Prompt Engineering"]],
-  ["Color & Audio",["Color Correction","Color Grading","Sound Design","Audio Mixing","Voice Sync"]],
-  ["Social Media Content",["Instagram Reels","YouTube Shorts","TikTok","Short-Form Ads","Retention-Focused Editing"]],
-  ["Creative Skills",["Storytelling","Pacing","Hooks","Storyboarding","Script Collaboration","Visual Consistency"]],
-  ["Post-Production",["Subtitles","Transitions","B-Roll","File Management","Compression","Thumbnails"]]],
- dev:[
-  ["Programming Languages",["Java (OOP, DSA)","JavaScript","C"]],
-  ["Frontend",["React.js","React Native","HTML","CSS"]],
-  ["Backend",["Node.js","Express.js","REST APIs"]],
-  ["Databases & Cloud",["MongoDB","PostgreSQL","Upstash"]],
-  ["AI & Developer Tools",["GitHub Copilot","ChatGPT","Claude","AI-assisted Code Generation","Debugging & Code Optimization","Technical Documentation"]],
-  ["State Management",["Redux","Context API"]],
-  ["Tools & Deployment",["Git","Vite","Render","Vercel","Postman","Excel"]],
-  ["Core Competencies",["Problem Solving","Team Collaboration","Cross-Functional Communication","Adaptability","Stakeholder Interaction"]]]
+// ================= EDIT YOUR CONTENT HERE =================
+// Every Drive file must be shared as "Anyone with the link → Viewer",
+// otherwise thumbnails and playback won't load for visitors.
+
+const DRIVE = {
+  thumb:  (id, w = 1280) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`,
+  alt:    (id, w = 1280) => `https://lh3.googleusercontent.com/d/${id}=w${w}`,
+  stream: id => `https://drive.google.com/uc?export=download&id=${id}`,
+  embed:  id => `https://drive.google.com/file/d/${id}/preview`,
+  view:   id => `https://drive.google.com/file/d/${id}/view`,
+  folder: id => `https://drive.google.com/embeddedfolderview?id=${id}#grid`,
+  folderView: id => `https://drive.google.com/drive/folders/${id}`
 };
-// ==================================
 
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-const REDUCE = matchMedia("(prefers-reduced-motion:reduce)").matches;
-document.documentElement.classList.add("js");
+// Videos. Each card tries src (an MP4 next to index.html in /videos) first,
+// then streams straight from Drive. The card's shape adapts to the clip, so
+// vertical reels and horizontal films both fit.
+const projects = [
+  {t:"AI Generated & Edited Film", c:"ai",   tag:"AI video",          id:"1diFCGfNpIGNV39Yd_DhE_72LA7XbF-Bx", src:"videos/ai-1.mp4"},
+  {t:"AI Generated & Edited Video 02", c:"ai", tag:"AI video",        id:"1aeP4RIACDsA0La0sO69BTcCCJL6Iszsc", src:"videos/ai-2.mp4"},
+  {t:"AI & Motion Graphics",       c:"ai",   tag:"Motion",            id:"16GjFI7bSzjBxJd3jRtCn3KTanE7XFJ8I", src:"videos/motion.mp4"},
+  {t:"supply6",                    c:"d2c",  tag:"D2C brand",         id:"1nigDtwtiVxzyDlk2Ei6DwrjHVIAnPgFz", src:"videos/supply6.mp4"},
+  {t:"rockED",                     c:"d2c",  tag:"D2C brand",         id:"1cWYOD5sLjmaNqWQOVYGge78lfYqlIZyy", src:"videos/rocked.mp4"},
+  {t:"Documentary Edit",           c:"long", tag:"YouTube long form", id:"15TFPk32gTTzxp9MFKfXsEaNmdGeSBOE1", src:"videos/documentary.mp4"},
+  {t:"Super Nova",                 c:"d2c",  tag:"D2C brand",         id:"1LOFcBeeL6ZXIlDDCHRL1KT-KMOgNxfM2", src:"videos/supernova.mp4"},
+  {t:"Narrative & Storytelling",   c:"long", tag:"YouTube long form", id:"1Df1RyytiibgRULIkYHFKqNJjUvN1-Zji", src:"videos/narrative.mp4"},
+  {t:"Finance Explainer",          c:"biz",  tag:"Freelance project", id:"1wJYgyFm6567bmSjtBWLOmO32w0AonR15", src:"videos/finance.mp4"}
+];
 
-const grid=$("#grid");
-grid.innerHTML = projects.map((p,i)=>`<button class="card" data-c="${p.c}" data-i="${i}" style="--g:${p.g}"><video muted loop playsinline preload="metadata" src="${p.src}#t=0.5"></video><small>${p.tag}</small><h3>${p.t}</h3><span class="play"></span></button>`).join("");
-$("#xp").innerHTML = jobs.map(j=>`<li><time>${j[0]}</time><div><h3>${j[1]}</h3><small>${j[2]}</small><p>${j[3]}</p></div></li>`).join("");
-$("#yr").textContent = new Date().getFullYear();
-$("#mq").innerHTML=[...tools,...tools].map(t=>`<span>${t}</span>`).join("");
+// Graphic design pieces (images on Drive). Rename t/tag to whatever you like.
+const designs = [
+  {t:"Arun Khetarpal — PVC carousel", tag:"Social creative", id:"1GZKKlHg8HSpiBiPrRh2WVEcteNeoiFRy"},
+  {t:"MAPH26 campaign visual",        tag:"Key visual",      id:"1EyAhpSTzZu43pfZugrjb1ZoDEKV_fB6v"}
+];
 
-// project filters
-$$(".filters button").forEach(b=>b.onclick=()=>{
-  $$(".filters button").forEach(x=>x.classList.toggle("active",x===b));
-  $$(".card").forEach(c=>c.classList.toggle("hide",b.dataset.f!=="all"&&c.dataset.c!==b.dataset.f));
-});
+// Carousels & threads.
+// Until you add sets below, the section shows your Drive folder directly.
+// To get the swipeable Instagram-style view, add one entry per carousel, with its
+// slide file IDs in order (the ID is the part between /d/ and /view in a share link):
+//   {t:"Carousel name", tag:"Instagram carousel", slides:["ID1","ID2","ID3"]},
+const carouselFolder = "1LYeaUKmVjNqHM4zIsJvSl30zdFBKwpko";
+const carousels = [
+];
 
-// card previews
-$$(".card video").forEach(v=>{
-  const c=v.closest(".card");
-  v.addEventListener("loadeddata",()=>c.classList.add("has-vid"));
-  v.addEventListener("error",()=>v.remove());
-  c.addEventListener("pointerenter",()=>v.isConnected&&v.play().catch(()=>{}));
-  c.addEventListener("pointerleave",()=>{if(v.isConnected){v.pause();v.currentTime=.5;}});
-});
+const tools = ["Premiere Pro","DaVinci Resolve","After Effects","Veo 3","Kling","Runway","Higgsfield","HeyGen","ElevenLabs","Midjourney","Firefly","Canva Pro","React","Node.js","MongoDB"];
 
-// modal
-const modal=$("#modal"),frameEl=$("#frame"),player=$("#player");
-const closeModal=()=>{modal.hidden=true;player.pause();player.removeAttribute("src");player.load();frameEl.src="";};
-grid.addEventListener("click",e=>{
-  const c=e.target.closest(".card"); if(!c) return;
-  const p=projects[c.dataset.i];
-  $("#mtitle").textContent=p.t; $("#mopen").href=openUrl(p.id);
-  frameEl.hidden=true; player.hidden=false; frameEl.src="";
-  player.onerror=()=>{player.hidden=true;frameEl.hidden=false;frameEl.src=drive(p.id);};
-  player.src=p.src; player.play().catch(()=>{});
-  modal.hidden=false; $("#close").focus();
-});
-$("#close").onclick=closeModal;
-modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
-addEventListener("keydown",e=>{if(e.key==="Escape"&&!modal.hidden)closeModal();});
+const jobs = [
+  ["Aug 2026 – Present","AI Creative & Multimedia Designer","Netram Defence Foundation · Gurugram, on-site",
+    ["Lead UI/UX design for the SDD project: wireframes, screen layouts and end-to-end user flows.",
+     "Produce AI-assisted video, graphics and multimedia with Veo, Runway, Midjourney and Firefly, on brand."]],
+  ["Mar 2026 – Jul 2026","Video Editor","Yellowred Photography · Hyderabad, on-site",
+    ["Edited client films with a focus on cinematic storytelling and visual quality, delivered on client timelines."]],
+  ["Jan 2026 – Mar 2026","Video Editor Intern","Protrainy · Remote",
+    ["Edited product marketing videos with the product team, delivering every asset on schedule with consistent branding."]],
+  ["Sep 2025 – Dec 2025","Video Editor & Content Writer Intern","Dragon's Perception · Remote",
+    ["Researched, scripted and edited 30–90s short-form and long-form videos for Indian youth audiences.",
+     "Handled motion graphics, subtitles, sound cleanup and color correction to spec and deadline."]],
+  ["Jul 2024 – May 2026","Video Editor","Hacnic Club, MLR Institute of Technology",
+    ["Produced event highlight reels and Instagram/YouTube reels with subtitles, transitions and effects under tight deadlines."]],
+  ["2024 – Present","Freelance Video Editor & Event Specialist","Self-employed · Hyderabad / Remote",
+    ["Delivered promotional and educational videos for clients in India, the UAE and Africa.",
+     "Shot and edited event recaps with synced music and overlays."]]
+];
 
-// nav
-const burger=$(".burger"),menu=$("#menu");
-burger.onclick=()=>burger.setAttribute("aria-expanded",menu.classList.toggle("open"));
-menu.onclick=e=>{if(e.target.tagName==="A"){menu.classList.remove("open");burger.setAttribute("aria-expanded","false");}};
+const skills = {
+  creative: [
+    ["Video editing",["Adobe Premiere Pro","DaVinci Resolve","CapCut","Filmora"]],
+    ["Motion & VFX",["After Effects","Motion graphics","Compositing","Canva Pro"]],
+    ["Generative AI video",["Google Veo","Kling AI","Runway","Higgsfield","HeyGen","ElevenLabs"]],
+    ["AI workflows",["Text-to-video","Image-to-video","AI characters","Lip sync","AI voice","Prompt engineering"]],
+    ["Color & audio",["Color correction","Color grading","Sound design","Audio mixing"]],
+    ["Social content",["Instagram Reels","YouTube Shorts","Carousels & threads","Short-form ads","Retention editing"]],
+    ["Story",["Hooks","Pacing","Storyboarding","Script collaboration"]],
+    ["Post-production",["Subtitles","B-roll","Compression","Thumbnails","File management"]]
+  ],
+  dev: [
+    ["Languages",["Java (OOP, DSA)","JavaScript","C"]],
+    ["Frontend",["React.js","React Native","HTML","CSS"]],
+    ["Backend",["Node.js","Express.js","REST APIs"]],
+    ["Data & cloud",["MongoDB","PostgreSQL","Upstash"]],
+    ["State",["Redux","Context API"]],
+    ["Tooling & deploy",["Git","Vite","Render","Vercel","Postman"]],
+    ["AI dev tools",["GitHub Copilot","ChatGPT","Claude"]],
+    ["Ways of working",["Problem solving","Cross-functional teams","Stakeholder communication"]]
+  ]
+};
+// ==========================================================
 
-// hero timeline
-const tl=$("#timeline"),ph=$("#playhead"),tc=$("#timecode"),clips=[...tl.querySelectorAll("i")];
-function scrub(x){
-  const r=tl.getBoundingClientRect(),pad=18;
-  const px=Math.min(Math.max(x-r.left,pad),r.width-pad);
-  ph.style.left=px+"px";
-  const s=Math.round((px-pad)/(r.width-pad*2)*90);
-  tc.textContent="00:"+String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
-  clips.forEach(c=>{const b=c.getBoundingClientRect();c.classList.toggle("on",x>=b.left&&x<=b.right);});
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- inline autoplay video ---------- */
+const videoTag = p => `<video muted loop playsinline preload="none" poster="${DRIVE.thumb(p.id)}">
+  <source data-src="${p.src}" type="video/mp4"><source data-src="${DRIVE.stream(p.id)}" type="video/mp4"></video>`;
+
+function loadVideo(v){
+  if (v.dataset.loaded) return;
+  v.dataset.loaded = "1";
+  $$("source", v).forEach(s => s.src = s.dataset.src);
+  v.preload = "auto";
+  v.load();
 }
-tl.addEventListener("pointermove",e=>scrub(e.clientX));
-requestAnimationFrame(()=>{const r=tl.getBoundingClientRect();scrub(r.left+r.width*.2);});
 
-// contact form
-$("#form").addEventListener("submit",e=>{
-  e.preventDefault();
-  const f=new FormData(e.target),n=$("#note");
-  if(!f.get("name")||!/\S+@\S+\.\S+/.test(f.get("email"))||!f.get("msg")){n.textContent="Add your name, a valid email and project details.";return;}
-  const body=`${f.get("msg")}\n\nFrom: ${f.get("name")} (${f.get("email")})`;
-  location.href=`mailto:sanjayjaks71@gmail.com?subject=${encodeURIComponent("Project enquiry from "+f.get("name"))}&body=${encodeURIComponent(body)}`;
-  n.textContent="Opening your email app to send this.";
+// Start loading a little before a clip scrolls in; play only while it's on screen.
+const preloader = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting){ loadVideo(e.target); preloader.unobserve(e.target); }
+}), {rootMargin: "400px 0px"});
+
+const autoplayer = new IntersectionObserver(entries => entries.forEach(e => {
+  const v = e.target;
+  if (e.isIntersecting && !REDUCE){ loadVideo(v); v.play().catch(() => {}); }
+  else v.pause();
+}), {threshold: .35});
+
+function watchVideo(v){
+  // Match the frame to the clip's real shape (9:16 reels stay vertical).
+  v.addEventListener("loadedmetadata", () => {
+    const box = v.closest("[data-ratio]");
+    if (box && v.videoWidth) box.style.setProperty("--ar", `${v.videoWidth}/${v.videoHeight}`);
+  });
+  preloader.observe(v);
+  autoplayer.observe(v);
+}
+
+/* ---------- hero reel ---------- */
+const reelP = projects[0];
+$("#reel-screen").innerHTML = videoTag(reelP);
+$("#reel-title").textContent = reelP.t;
+const reelVid = $("#reel-screen video");
+watchVideo(reelVid);
+$("#reel-sound").onclick = e => {
+  reelVid.muted = !reelVid.muted;
+  if (!reelVid.muted) reelVid.play().catch(() => {});
+  e.currentTarget.setAttribute("aria-pressed", String(!reelVid.muted));
+  e.currentTarget.textContent = reelVid.muted ? "Sound off" : "Sound on";
+};
+
+/* ---------- tools ---------- */
+$("#tools").innerHTML = tools.map(t => `<span>${esc(t)}</span>`).join("");
+
+/* ---------- video grid ---------- */
+const grid = $("#grid");
+grid.innerHTML = projects.map((p, i) => `
+  <article class="card" data-c="${p.c}">
+    <button class="open" data-ratio data-i="${i}" aria-label="Watch ${esc(p.t)} with sound">
+      ${videoTag(p)}<span class="hint" aria-hidden="true">Watch with sound</span>
+    </button>
+    <div class="meta"><h3>${esc(p.t)}</h3><span>${esc(p.tag)}</span></div>
+  </article>`).join("");
+$$("video", grid).forEach(watchVideo);
+
+$$("#work .filters button").forEach(b => b.onclick = () => {
+  $$("#work .filters button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  $$(".card", grid).forEach(c => c.hidden = b.dataset.f !== "all" && c.dataset.c !== b.dataset.f);
 });
 
-// background: red embers + particle web
-(()=>{
-  const cv=$("#bg"),x=cv.getContext("2d");
-  let W,H,D,pts=[],m={x:.5,y:.4,on:false};
-  const orbs=["225,29,46","140,10,24","255,77,90"].map((c,i)=>({c,a:i*2.1,s:.0005+i*.00017,r:.42+.06*i}));
-  const size=()=>{D=Math.min(devicePixelRatio||1,1.5);W=cv.width=innerWidth*D;H=cv.height=innerHeight*D;
-    pts=Array.from({length:Math.min(70,Math.floor(innerWidth/16))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3*D,vy:(Math.random()-.5)*.3*D}));};
-  addEventListener("resize",size);size();
-  addEventListener("pointermove",e=>{m.x=e.clientX/innerWidth;m.y=e.clientY/innerHeight;m.on=true;});
-  function draw(t){
-    x.globalCompositeOperation="source-over";x.fillStyle="#09090b";x.fillRect(0,0,W,H);
-    x.globalCompositeOperation="lighter";
-    orbs.forEach((o,i)=>{
-      const px=W*(.5+.38*Math.cos(t*o.s+o.a)+(m.x-.5)*.1*(i+1)),py=H*(.5+.34*Math.sin(t*o.s*1.3+o.a*2)+(m.y-.5)*.1*(i+1)),r=Math.max(W,H)*o.r;
-      const g=x.createRadialGradient(px,py,0,px,py,r);
-      g.addColorStop(0,`rgba(${o.c},.22)`);g.addColorStop(1,`rgba(${o.c},0)`);
-      x.fillStyle=g;x.fillRect(0,0,W,H);
-    });
-    const L=130*D;x.lineWidth=D;
-    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
-    for(let i=0;i<pts.length;i++){
-      const a=pts[i];
-      x.fillStyle="rgba(255,150,150,.7)";x.fillRect(a.x,a.y,2*D,2*D);
-      for(let j=i+1;j<pts.length;j++){
-        const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<L){x.strokeStyle=`rgba(255,80,90,${.2*(1-d/L)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}
-      }
-    }
-    if(!REDUCE)requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
-})();
+/* ---------- graphic design ---------- */
+const designsEl = $("#designs");
+designsEl.innerHTML = designs.map((d, i) => `
+  <figure class="design">
+    <button class="open" data-d="${i}" aria-label="View ${esc(d.t)} full size">
+      <img loading="lazy" src="${DRIVE.thumb(d.id, 1600)}" data-id="${d.id}" alt="${esc(d.t)}">
+    </button>
+    <figcaption><b>${esc(d.t)}</b><span>${esc(d.tag)}</span></figcaption>
+  </figure>`).join("");
 
-// skills
+// If Drive's thumbnail endpoint refuses an image, retry through Google's image CDN once.
+document.addEventListener("error", e => {
+  const im = e.target;
+  if (im.tagName === "IMG" && im.dataset.id && !im.dataset.fb){
+    im.dataset.fb = "1";
+    im.src = DRIVE.alt(im.dataset.id, 1600);
+  }
+}, true);
+
+/* ---------- carousels & threads ---------- */
+const setsEl = $("#sets");
+if (!carousels.length){
+  setsEl.innerHTML = `<div class="folder">
+    <iframe src="${DRIVE.folder(carouselFolder)}" title="Carousels and threads" loading="lazy"></iframe>
+    <p><a href="${DRIVE.folderView(carouselFolder)}" target="_blank" rel="noopener">Open the full folder in Drive ↗</a></p>
+  </div>`;
+} else {
+  setsEl.innerHTML = carousels.map((s, i) => `
+    <article class="set" data-s="${i}">
+      <div class="set-head">
+        <div><h3>${esc(s.t)}</h3><span>${esc(s.tag)} · ${s.slides.length} slides</span></div>
+        <div class="ctrl">
+          <button class="prev" aria-label="Previous slide">←</button>
+          <span class="count">1 / ${s.slides.length}</span>
+          <button class="next" aria-label="Next slide">→</button>
+        </div>
+      </div>
+      <div class="track" tabindex="0" aria-label="${esc(s.t)} slides">
+        ${s.slides.map((id, j) => `<button class="slide" data-id="${id}" data-n="${j + 1}" aria-label="View slide ${j + 1} full size">
+          <img loading="lazy" src="${DRIVE.thumb(id, 1080)}" data-id="${id}" alt="${esc(s.t)}, slide ${j + 1}"></button>`).join("")}
+      </div>
+    </article>`).join("");
+
+  $$(".set", setsEl).forEach(set => {
+    const track = $(".track", set), count = $(".count", set), total = $$(".slide", set).length;
+    const prev = $(".prev", set), next = $(".next", set);
+    const step = () => $(".slide", track).getBoundingClientRect().width + 12;
+    const update = () => {
+      const n = Math.min(total, Math.round(track.scrollLeft / step()) + 1);
+      count.textContent = `${n} / ${total}`;
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    };
+    prev.onclick = () => track.scrollBy({left: -step(), behavior: REDUCE ? "auto" : "smooth"});
+    next.onclick = () => track.scrollBy({left:  step(), behavior: REDUCE ? "auto" : "smooth"});
+    track.addEventListener("scroll", update, {passive: true});
+    update();
+  });
+}
+
+/* ---------- viewer (video with sound / full-size image) ---------- */
+const dlg = $("#modal"), mbody = $("#modal-body");
+
+function openViewer(title, id){
+  $("#mtitle").textContent = title;
+  $("#mopen").href = DRIVE.view(id);
+  if (!reelVid.muted) $("#reel-sound").click();
+  dlg.showModal();
+}
+
+function openVideo(p){
+  mbody.innerHTML = `<video controls playsinline autoplay poster="${DRIVE.thumb(p.id, 1920)}">
+    <source src="${p.src}" type="video/mp4"><source src="${DRIVE.stream(p.id)}" type="video/mp4"></video>`;
+  const v = $("video", mbody);
+  // Both direct sources failed: fall back to Drive's own player.
+  $("source:last-of-type", v).addEventListener("error", () => {
+    mbody.innerHTML = `<iframe src="${DRIVE.embed(p.id)}" allow="autoplay; fullscreen" allowfullscreen title="${esc(p.t)}"></iframe>`;
+  });
+  openViewer(p.t, p.id);
+}
+
+function openImage(title, id){
+  mbody.innerHTML = `<img src="${DRIVE.thumb(id, 2400)}" data-id="${id}" alt="${esc(title)}">`;
+  openViewer(title, id);
+}
+
+grid.addEventListener("click", e => {
+  const b = e.target.closest(".open"); if (b) openVideo(projects[b.dataset.i]);
+});
+designsEl.addEventListener("click", e => {
+  const b = e.target.closest(".open"); if (!b) return;
+  const d = designs[b.dataset.d]; openImage(d.t, d.id);
+});
+setsEl.addEventListener("click", e => {
+  const b = e.target.closest(".slide"); if (!b) return;
+  const t = $("h3", b.closest(".set")).textContent;
+  openImage(`${t} — slide ${b.dataset.n}`, b.dataset.id);
+});
+
+$("#close").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("close", () => { mbody.innerHTML = ""; });
+
+/* ---------- skills ---------- */
 function renderSkills(k){
-  $("#cats").innerHTML=skills[k].map((c,i)=>`<article class="cat" style="animation-delay:${i*60}ms"><h3>${c[0]}</h3><div>${c[1].map(t=>`<span>${t}</span>`).join("")}</div></article>`).join("");
+  $("#cats").innerHTML = skills[k].map(([h, list]) =>
+    `<article class="cat"><h3>${esc(h)}</h3><ul>${list.map(t => `<li>${esc(t)}</li>`).join("")}</ul></article>`).join("");
 }
 renderSkills("creative");
-$$(".tabs button").forEach(b=>b.onclick=()=>{
-  $$(".tabs button").forEach(x=>x.classList.toggle("active",x===b));renderSkills(b.dataset.k);
+$$("#skills .filters button").forEach(b => b.onclick = () => {
+  $$("#skills .filters button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  renderSkills(b.dataset.k);
 });
 
-// role typewriter
-(()=>{
-  const words=["AI video editor","motion designer","AI dubbing artist","full-stack developer"],el=$("#role");
-  if(REDUCE){el.textContent=words[0];return;}
-  let w=0,i=0,del=false;
-  (function tick(){
-    const full=words[w];
-    el.textContent=full.slice(0,i);
-    if(!del&&i===full.length){del=true;return setTimeout(tick,1500);}
-    if(del&&i===0){del=false;w=(w+1)%words.length;}
-    i+=del?-1:1;setTimeout(tick,del?35:70);
-  })();
-})();
+/* ---------- experience ---------- */
+$("#xp").innerHTML = jobs.map(([when, role, where, points]) => `
+  <li><time>${esc(when)}</time><div><h3>${esc(role)}</h3><small>${esc(where)}</small>
+  <ul>${points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div></li>`).join("");
 
-// scroll progress
-const prog=$("#prog");
-addEventListener("scroll",()=>{prog.style.transform=`scaleX(${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`;},{passive:true});
+/* ---------- nav ---------- */
+const burger = $(".burger"), menu = $("#menu");
+burger.onclick = () => {
+  const open = menu.classList.toggle("open");
+  burger.setAttribute("aria-expanded", String(open));
+  burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+};
+menu.onclick = e => {
+  if (e.target.tagName === "A"){
+    menu.classList.remove("open");
+    burger.setAttribute("aria-expanded", "false");
+    burger.setAttribute("aria-label", "Open menu");
+  }
+};
 
-// reveal on scroll + counters (only headings/blocks; never hides the hero)
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;
-  e.target.classList.add("in");io.unobserve(e.target);
-  e.target.querySelectorAll("[data-n]").forEach(n=>{
-    const to=+n.dataset.n,t0=performance.now();
-    (function step(t){const k=Math.min(1,(t-t0)/1200);n.textContent=Math.round(to*(1-Math.pow(1-k,3)))+n.dataset.s;if(k<1)requestAnimationFrame(step);})(t0);
-  });
-}),{threshold:.1});
-$$(".section-head,.about-body,.xp li,.contact-wrap,.tabs,.section>h2").forEach(el=>{el.classList.add("rv");io.observe(el);});
+/* ---------- contact form (opens the visitor's email app) ---------- */
+$("#form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target), note = $("#note");
+  if (!f.get("name") || !/\S+@\S+\.\S+/.test(f.get("email")) || !f.get("msg")){
+    note.textContent = "Add your name, a valid email and a few lines about the project.";
+    return;
+  }
+  const body = `${f.get("msg")}\n\nFrom: ${f.get("name")} (${f.get("email")})`;
+  location.href = `mailto:sanjayjaks71@gmail.com?subject=${encodeURIComponent("Project enquiry from " + f.get("name"))}&body=${encodeURIComponent(body)}`;
+  note.textContent = "Opening your email app to send this.";
+});
 
-// tilt + spotlight on cards
-if(!REDUCE&&matchMedia("(pointer:fine)").matches){
-  document.addEventListener("pointermove",e=>{
-    const c=e.target.closest&&e.target.closest(".card,.cat");if(!c)return;
-    const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
-    c.style.setProperty("--ry",((px-.5)*8).toFixed(2)+"deg");c.style.setProperty("--rx",((.5-py)*8).toFixed(2)+"deg");
-    c.style.setProperty("--mx",px*100+"%");c.style.setProperty("--my",py*100+"%");
-  });
-  document.addEventListener("pointerout",e=>{
-    const c=e.target.closest&&e.target.closest(".card,.cat");if(!c||c.contains(e.relatedTarget))return;
-    c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg");
-  });
-}
+$("#yr").textContent = new Date().getFullYear();
