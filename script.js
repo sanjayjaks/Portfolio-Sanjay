@@ -21,7 +21,7 @@ const credits = [
   ["AI Dubbing Artist",                 "ElevenLabs voice · HeyGen lip sync", "#services"],
   ["Creative Designer",                 "Key visuals, social creatives", "#design"],
   ["Multimedia Designer",               "Carousels, threads, motion, UI", "#carousels"],
-  ["AI Creative & Multimedia Designer", "Current role · Netram Defence", "#experience"],
+  ["AI Creative & Multimedia Designer", "AI video, graphics & UI end to end", "#services"],
   ["Creative Strategist",               "Hooks, scripts, formats, retention", "#process"]
 ];
 
@@ -94,7 +94,7 @@ const steps = [
 ];
 
 const jobs = [
-  ["Aug 2026 – Present","AI Creative & Multimedia Designer","Netram Defence Foundation · Gurugram, on-site",
+  ["Aug 2026 – Nov 2026","AI Creative & Multimedia Designer","Netram Defence Foundation · Gurugram, on-site",
     ["Lead UI/UX design for the SDD project: wireframes, screen layouts and end-to-end user flows.",
      "Produce AI-assisted video, graphics and multimedia with Veo, Runway, Midjourney and Firefly, on brand."]],
   ["Mar 2026 – Jul 2026","Video Editor","Yellowred Photography · Hyderabad, on-site",
@@ -269,7 +269,7 @@ $("#steps").innerHTML = steps.map(([h, p], i) => `
 
 /* ---------- experience ---------- */
 $("#xp").innerHTML = jobs.map(([when, role, where, points]) => `
-  <li class="${/present/i.test(when) && /Netram/.test(where) ? "current" : ""}">
+  <li>
     <time>${esc(when)}</time>
     <div><h3>${esc(role)}</h3><small>${esc(where)}</small>
     <ul>${points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
