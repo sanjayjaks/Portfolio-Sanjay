@@ -3,137 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sanjay Jakkani — AI Video Editor, Designer &amp; Developer</title>
-<meta name="description" content="Portfolio of Sanjay Jakkani: AI-generated video, D2C ads, documentary edits, graphic design, Instagram carousels and threads.">
+<title>Sanjay Jakkani — AI Video Editor, AI Dubbing Artist &amp; Multimedia Designer</title>
+<meta name="description" content="Sanjay Jakkani: AI video editor, AI video creator, video editor, AI dubbing artist, creative and multimedia designer, and creative strategist. Based in Hyderabad, working with clients in India, the UAE and Africa.">
+<meta property="og:title" content="Sanjay Jakkani — AI Video & Multimedia Design">
+<meta property="og:description" content="AI-generated films, D2C ads, documentary edits, AI dubbing, graphic design, carousels and threads.">
+<meta name="theme-color" content="#E4E4E4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#work">Skip to work</a>
 
 <header class="nav">
-  <a href="#top" class="logo">Sanjay Jakkani</a>
+  <a href="#top" class="logo"><span class="rec" aria-hidden="true"></span>Sanjay Jakkani</a>
   <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   <nav id="menu" aria-label="Primary">
-    <a href="#work">Video</a>
+    <a href="#work">Work</a>
     <a href="#design">Design</a>
     <a href="#carousels">Carousels</a>
-    <a href="#about">About</a>
+    <a href="#services">Services</a>
     <a href="#experience">Experience</a>
     <a href="#contact" class="pill">Hire me</a>
   </nav>
 </header>
 
 <main id="top">
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">AI video editor · Graphic designer · Developer — Hyderabad</p>
-      <h1>I make AI films, brand ads and the graphics that sell them.</h1>
-      <p class="lede">I generate, cut, score and dub video with AI tools, design the carousels and posts that promote it, and build the sites it lives on. Clients in India, the UAE and Africa.</p>
-      <div class="cta">
-        <a class="btn" href="#work">See the work</a>
-        <a class="btn ghost" href="#contact">Start a project</a>
+    <p class="eyebrow mono">
+      <span>Portfolio <span id="yr2"></span></span>
+      <span>Hyderabad, India</span>
+      <span class="avail"><i aria-hidden="true"></i>Open to full-time &amp; freelance</span>
+    </p>
+    <h1 class="name">Sanjay Jakkani</h1>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="lede">AI video editor and multimedia designer. I take an idea from prompt to final cut: generated, edited, dubbed, designed and ready to post.</p>
+        <div class="cta">
+          <a class="btn" href="#work">Watch the work</a>
+          <a class="btn ghost" href="#contact">Start a project</a>
+        </div>
+        <p class="now mono">Currently: AI Creative &amp; Multimedia Designer,<br>Netram Defence Foundation</p>
+      </div>
+      <div class="credits">
+        <p class="label mono"><span>Credits</span><span>Click a role to see the proof</span></p>
+        <ol id="credits"></ol>
       </div>
     </div>
-    <figure class="reel" id="reel">
-      <div class="screen" data-ratio id="reel-screen"></div>
-      <figcaption>
-        <span><span class="live" aria-hidden="true"></span>Now playing: <b id="reel-title"></b></span>
-        <button class="chip" id="reel-sound" aria-pressed="false">Sound off</button>
-      </figcaption>
-    </figure>
   </section>
 
-  <div class="tools" id="tools" aria-label="Tools I use"></div>
-
-  <section class="section" id="work">
-    <div class="head">
-      <h2>Video</h2>
-      <p>Every clip plays as you scroll past it. Click one to watch it full size with sound.</p>
-      <div class="filters" role="group" aria-label="Filter videos">
-        <button aria-pressed="true" data-f="all">All</button>
-        <button aria-pressed="false" data-f="ai">AI &amp; Motion</button>
-        <button aria-pressed="false" data-f="d2c">D2C ads</button>
-        <button aria-pressed="false" data-f="long">Long form</button>
-        <button aria-pressed="false" data-f="biz">Freelance</button>
+  <!-- 01 WORK -->
+  <section class="section dark" id="work">
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">01 — Video</p>
+        <div>
+          <h2>Films, ads and edits.</h2>
+          <p>Clips play as you scroll. Click any one to watch it full screen with sound.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter videos">
+          <button aria-pressed="true" data-f="all">All</button>
+          <button aria-pressed="false" data-f="ai">AI &amp; Motion</button>
+          <button aria-pressed="false" data-f="d2c">D2C ads</button>
+          <button aria-pressed="false" data-f="long">Long form</button>
+          <button aria-pressed="false" data-f="biz">Freelance</button>
+        </div>
       </div>
+      <div class="work" id="grid"></div>
     </div>
-    <div class="work" id="grid"></div>
   </section>
 
+  <!-- 02 DESIGN -->
   <section class="section" id="design">
-    <div class="head">
-      <h2>Graphic design</h2>
-      <p>Key visuals, social creatives and campaign artwork. Click any piece to see it full size.</p>
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">02 — Graphic design</p>
+        <div>
+          <h2>Key visuals and social creatives.</h2>
+          <p>Campaign artwork made to stay on brand. Click any piece to see it full size.</p>
+        </div>
+      </div>
+      <div class="designs" id="designs"></div>
     </div>
-    <div class="designs" id="designs"></div>
   </section>
 
+  <!-- 03 CAROUSELS -->
   <section class="section" id="carousels">
-    <div class="head">
-      <h2>Carousels &amp; threads</h2>
-      <p>Instagram carousels and thread-style posts, written and designed to be swiped.</p>
-    </div>
-    <div id="sets"></div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="head"><h2>About</h2></div>
-    <div class="about">
-      <div class="about-copy">
-        <p>I work across two tracks: AI-driven video and full-stack development. Editing taught me pacing and hooks. Code lets me ship the page the video plays on.</p>
-        <p>Right now I'm the AI Creative &amp; Multimedia Designer at Netram Defence Foundation, where I design product UI and produce AI-assisted video and graphics.</p>
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">03 — Carousels &amp; threads</p>
+        <div>
+          <h2>Posts built to be swiped.</h2>
+          <p>Instagram carousels and thread-style posts: written, structured and designed slide by slide.</p>
+        </div>
       </div>
-      <dl class="facts">
-        <div><dt>Editing professionally</dt><dd>2+ years</dd></div>
-        <div><dt>Clients in</dt><dd>India, UAE, Africa</dd></div>
-        <div><dt>Education</dt><dd>B.Tech, Computer Science — MLR Institute of Technology</dd></div>
-      </dl>
+      <div id="sets"></div>
     </div>
   </section>
 
-  <section class="section" id="skills">
-    <div class="head">
-      <h2>Skills</h2>
-      <div class="filters" role="group" aria-label="Skill group">
-        <button aria-pressed="true" data-k="creative">Creative &amp; AI video</button>
-        <button aria-pressed="false" data-k="dev">Development</button>
+  <!-- 04 SERVICES -->
+  <section class="section" id="services">
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">04 — Services</p>
+        <div>
+          <h2>What you can hire me for.</h2>
+          <p>One person from idea to export, so nothing gets lost between the strategist, the editor and the designer.</p>
+        </div>
       </div>
+      <div class="services" id="svc"></div>
     </div>
-    <div class="cats" id="cats"></div>
   </section>
 
+  <!-- 05 PROCESS -->
+  <section class="section" id="process">
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">05 — Process</p>
+        <div>
+          <h2>From brief to final file.</h2>
+          <p>Strategy first, then production. Every project runs through the same six steps.</p>
+        </div>
+      </div>
+      <ol class="process" id="steps"></ol>
+    </div>
+  </section>
+
+  <!-- 06 EXPERIENCE -->
   <section class="section" id="experience">
-    <div class="head"><h2>Experience</h2></div>
-    <ol class="xp" id="xp"></ol>
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">06 — Experience</p>
+        <div><h2>Where I've worked.</h2></div>
+      </div>
+      <ol class="xp" id="xp"></ol>
+    </div>
   </section>
 
-  <section class="section contact" id="contact">
-    <div class="head">
-      <h2>Tell me what you're making.</h2>
-      <p>I reply within a day.</p>
+  <!-- 07 ABOUT -->
+  <section class="section" id="about">
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">07 — About</p>
+      </div>
+      <div class="about">
+        <div class="about-copy">
+          <p>I started as an editor, cutting event reels and YouTube videos, and learned what keeps people watching: the hook, the pacing, the sound.</p>
+          <p>Now I use AI to generate footage and voices, then edit, dub and design around them with the same care. I studied computer science, so I also build the sites my work lives on.</p>
+        </div>
+        <dl class="facts">
+          <div><dt class="mono">Editing professionally</dt><dd>2+ years</dd></div>
+          <div><dt class="mono">Clients in</dt><dd>India, the UAE and Africa</dd></div>
+          <div><dt class="mono">Education</dt><dd>B.Tech, Computer Science — MLR Institute of Technology</dd></div>
+        </dl>
+      </div>
     </div>
-    <div class="contact-wrap">
-      <form id="form" novalidate>
-        <label>Name<input name="name" type="text" autocomplete="name" required></label>
-        <label>Email<input name="email" type="email" autocomplete="email" required></label>
-        <label>Project details<textarea name="msg" rows="5" required></textarea></label>
-        <button class="btn" type="submit">Send message</button>
-        <p class="note" id="note" role="status"></p>
-      </form>
-      <ul class="links">
-        <li><span>Email</span><a href="mailto:sanjayjaks71@gmail.com">sanjayjaks71@gmail.com</a></li>
-        <li><span>Phone</span><a href="tel:+919398945545">+91 93989 45545</a></li>
-        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/sanjay-jakkani-0360203a9/" target="_blank" rel="noopener">sanjay-jakkani ↗</a></li>
-      </ul>
+  </section>
+
+  <!-- 08 CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="inner">
+      <div class="head">
+        <p class="idx mono">08 — Contact</p>
+        <div>
+          <h2>Got a brief? Send it over.</h2>
+          <p>Full-time roles, freelance projects or a quick question. I reply within a day.</p>
+        </div>
+      </div>
+      <div class="contact-wrap">
+        <div class="direct">
+          <a class="big-mail" href="mailto:sanjayjaks71@gmail.com">sanjayjaks71@gmail.com</a>
+          <button class="chip" id="copy" type="button">Copy email</button>
+          <ul class="links">
+            <li><span class="mono">Phone / WhatsApp</span><a href="tel:+919398945545">+91 93989 45545</a></li>
+            <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/sanjay-jakkani-0360203a9/" target="_blank" rel="noopener">sanjay-jakkani ↗</a></li>
+          </ul>
+        </div>
+        <form id="form" novalidate>
+          <label>Name<input name="name" type="text" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>What do you need?
+            <select name="type">
+              <option>AI video</option>
+              <option>Video editing</option>
+              <option>AI dubbing / voiceover</option>
+              <option>Graphic design / carousels</option>
+              <option>Full-time role</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Project details<textarea name="msg" rows="5" required></textarea></label>
+          <button class="btn" type="submit">Send message</button>
+          <p class="note" id="note" role="status"></p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <span>© <span id="yr"></span> Sanjay Jakkani</span>
+  <span>© <span id="yr"></span> Sanjay Jakkani. Designed and built by me.</span>
   <a href="#top">Back to top ↑</a>
 </footer>
 
@@ -144,7 +215,7 @@
       <b id="mtitle"></b>
       <span>
         <a id="mopen" target="_blank" rel="noopener">Open in Drive ↗</a>
-        <button class="chip dark" id="close">Close</button>
+        <button class="chip dark-chip" id="close" type="button">Close</button>
       </span>
     </div>
   </div>
