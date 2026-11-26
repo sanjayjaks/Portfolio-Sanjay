@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sanjay Jakkani — AI Video Editor & Creative Technologist</title>
-<meta name="description" content="Portfolio of Sanjay Jakkani: AI-generated video, motion graphics, D2C ads, documentary and long-form editing.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sanjay Jakkani — AI Video Editor, Designer &amp; Developer</title>
+<meta name="description" content="Portfolio of Sanjay Jakkani: AI-generated video, D2C ads, documentary edits, graphic design, Instagram carousels and threads.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="bg"></canvas>
-<div id="prog"></div>
+<a class="skip" href="#work">Skip to work</a>
 
 <header class="nav">
-  <a href="#top" class="logo">SANJAY<span style="color:var(--acc)">.</span></a>
-  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <nav id="menu">
-    <a href="#work">Work</a>
+  <a href="#top" class="logo">Sanjay Jakkani</a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  <nav id="menu" aria-label="Primary">
+    <a href="#work">Video</a>
+    <a href="#design">Design</a>
+    <a href="#carousels">Carousels</a>
     <a href="#about">About</a>
-    <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#contact" class="pill">Hire me</a>
   </nav>
@@ -28,96 +28,127 @@
 
 <main id="top">
   <section class="hero">
-    <p class="hero-meta">Hyderabad, India · Clients in the UAE &amp; Africa</p>
-    <h1 class="hero-title">
-      <span>AI VIDEO</span>
-      <span>+ CODE</span>
-      <span>STORIES.</span>
-    </h1>
-    <p class="hero-sub">I'm <b>Sanjay Jakkani</b>, a creative technologist. I generate, edit, score and dub films with AI, then build the sites they live on.</p>
-    <p class="roles">I'm an <b id="role"></b><span class="caret"></span></p>
-
-    <div class="timeline" id="timeline">
-      <div class="ruler"></div>
-      <div class="track"><i style="--l:2%;--w:30%">Generate</i><i style="--l:34%;--w:28%">Edit</i><i style="--l:64%;--w:32%">Score</i></div>
-      <div class="track"><i style="--l:8%;--w:26%">Dub</i><i style="--l:36%;--w:34%">Grade</i><i style="--l:72%;--w:24%">Export</i></div>
-      <div class="playhead" id="playhead"><b id="timecode">00:00:00</b></div>
-    </div>
-  </section>
-
-  <div class="marquee"><div class="mq" id="mq"></div></div>
-
-  <section class="section" id="work">
-    <div class="section-head">
-      <h2>Selected work</h2>
-      <div class="filters">
-        <button class="active" data-f="all">All</button>
-        <button data-f="ai">AI &amp; Motion</button>
-        <button data-f="d2c">D2C</button>
-        <button data-f="long">Long form</button>
-        <button data-f="biz">Freelance</button>
+    <div class="hero-copy">
+      <p class="eyebrow">AI video editor · Graphic designer · Developer — Hyderabad</p>
+      <h1>I make AI films, brand ads and the graphics that sell them.</h1>
+      <p class="lede">I generate, cut, score and dub video with AI tools, design the carousels and posts that promote it, and build the sites it lives on. Clients in India, the UAE and Africa.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See the work</a>
+        <a class="btn ghost" href="#contact">Start a project</a>
       </div>
     </div>
-    <div class="grid" id="grid"></div>
+    <figure class="reel" id="reel">
+      <div class="screen" data-ratio id="reel-screen"></div>
+      <figcaption>
+        <span><span class="live" aria-hidden="true"></span>Now playing: <b id="reel-title"></b></span>
+        <button class="chip" id="reel-sound" aria-pressed="false">Sound off</button>
+      </figcaption>
+    </figure>
+  </section>
+
+  <div class="tools" id="tools" aria-label="Tools I use"></div>
+
+  <section class="section" id="work">
+    <div class="head">
+      <h2>Video</h2>
+      <p>Every clip plays as you scroll past it. Click one to watch it full size with sound.</p>
+      <div class="filters" role="group" aria-label="Filter videos">
+        <button aria-pressed="true" data-f="all">All</button>
+        <button aria-pressed="false" data-f="ai">AI &amp; Motion</button>
+        <button aria-pressed="false" data-f="d2c">D2C ads</button>
+        <button aria-pressed="false" data-f="long">Long form</button>
+        <button aria-pressed="false" data-f="biz">Freelance</button>
+      </div>
+    </div>
+    <div class="work" id="grid"></div>
+  </section>
+
+  <section class="section" id="design">
+    <div class="head">
+      <h2>Graphic design</h2>
+      <p>Key visuals, social creatives and campaign artwork. Click any piece to see it full size.</p>
+    </div>
+    <div class="designs" id="designs"></div>
+  </section>
+
+  <section class="section" id="carousels">
+    <div class="head">
+      <h2>Carousels &amp; threads</h2>
+      <p>Instagram carousels and thread-style posts, written and designed to be swiped.</p>
+    </div>
+    <div id="sets"></div>
   </section>
 
   <section class="section" id="about">
-    <h2>About</h2>
-    <div class="about-body">
-      <p>Creative technologist across two tracks: AI-driven video and full-stack development. B.Tech in Computer Science, MLR Institute of Technology.</p>
-      <p>Currently AI Creative &amp; Multimedia Designer at Netram Defence Foundation.</p>
-      <div class="stats">
-        <div><strong data-n="2" data-s="+">2+</strong><span>years editing professionally</span></div>
-        <div><strong data-n="9" data-s="">9</strong><span>featured projects</span></div>
-        <div><strong data-n="3" data-s="">3</strong><span>continents of clients</span></div>
+    <div class="head"><h2>About</h2></div>
+    <div class="about">
+      <div class="about-copy">
+        <p>I work across two tracks: AI-driven video and full-stack development. Editing taught me pacing and hooks. Code lets me ship the page the video plays on.</p>
+        <p>Right now I'm the AI Creative &amp; Multimedia Designer at Netram Defence Foundation, where I design product UI and produce AI-assisted video and graphics.</p>
       </div>
+      <dl class="facts">
+        <div><dt>Editing professionally</dt><dd>2+ years</dd></div>
+        <div><dt>Clients in</dt><dd>India, UAE, Africa</dd></div>
+        <div><dt>Education</dt><dd>B.Tech, Computer Science — MLR Institute of Technology</dd></div>
+      </dl>
     </div>
   </section>
 
   <section class="section" id="skills">
-    <h2>Skills</h2>
-    <div class="tabs">
-      <button class="active" data-k="creative">Creative &amp; AI video</button>
-      <button data-k="dev">Development</button>
+    <div class="head">
+      <h2>Skills</h2>
+      <div class="filters" role="group" aria-label="Skill group">
+        <button aria-pressed="true" data-k="creative">Creative &amp; AI video</button>
+        <button aria-pressed="false" data-k="dev">Development</button>
+      </div>
     </div>
     <div class="cats" id="cats"></div>
   </section>
 
   <section class="section" id="experience">
-    <h2>Experience</h2>
+    <div class="head"><h2>Experience</h2></div>
     <ol class="xp" id="xp"></ol>
   </section>
 
   <section class="section contact" id="contact">
-    <h2>Let's make something loud.</h2>
-    <p class="lead">Tell me what you're making. I reply within a day.</p>
+    <div class="head">
+      <h2>Tell me what you're making.</h2>
+      <p>I reply within a day.</p>
+    </div>
     <div class="contact-wrap">
       <form id="form" novalidate>
-        <label>Name<input name="name" type="text" autocomplete="name"></label>
-        <label>Email<input name="email" type="email" autocomplete="email"></label>
-        <label>Project details<textarea name="msg" rows="5"></textarea></label>
+        <label>Name<input name="name" type="text" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Project details<textarea name="msg" rows="5" required></textarea></label>
         <button class="btn" type="submit">Send message</button>
-        <p class="note" id="note"></p>
+        <p class="note" id="note" role="status"></p>
       </form>
       <ul class="links">
         <li><span>Email</span><a href="mailto:sanjayjaks71@gmail.com">sanjayjaks71@gmail.com</a></li>
         <li><span>Phone</span><a href="tel:+919398945545">+91 93989 45545</a></li>
-        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/sanjay-jakkani-0360203a9/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/sanjay-jakkani-0360203a9/" target="_blank" rel="noopener">sanjay-jakkani ↗</a></li>
       </ul>
     </div>
   </section>
 </main>
 
-<footer><span>© <span id="yr"></span> Sanjay Jakkani</span><a href="#top">Back to top ↑</a></footer>
+<footer>
+  <span>© <span id="yr"></span> Sanjay Jakkani</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
 
-<div class="modal" id="modal" hidden>
+<dialog id="modal" aria-labelledby="mtitle">
   <div class="modal-box">
-    <button class="close" id="close">Close</button>
-    <video id="player" controls playsinline></video>
-    <iframe id="frame" allow="autoplay; fullscreen" allowfullscreen hidden></iframe>
-    <div class="modal-foot"><b id="mtitle"></b><a id="mopen" target="_blank" rel="noopener">Open in Drive ↗</a></div>
+    <div id="modal-body"></div>
+    <div class="modal-foot">
+      <b id="mtitle"></b>
+      <span>
+        <a id="mopen" target="_blank" rel="noopener">Open in Drive ↗</a>
+        <button class="chip dark" id="close">Close</button>
+      </span>
+    </div>
   </div>
-</div>
+</dialog>
 
 <script src="script.js"></script>
 </body>
